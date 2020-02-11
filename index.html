@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Calculator</title>
 </head>
+
 <body>
-    
+    <style>
+        * {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        button {
+            width: 25px;
+            margin: 2px;
+        }
+    </style>
+    <form>
+        <input id="result" readonly placeholder="">
+        <input id="input" readonly placeholder="">
+        <hr />
+        <div id="digits">
+            <button type="button">0</button>
+            <button type="button">2</button>
+            <button type="button">1</button>
+            <button type="button">3</button>
+            <button type="button">4</button>
+            <button type="button">5</button>
+            <button type="button">6</button>
+            <button type="button">7</button>
+            <button type="button">8</button>
+            <button type="button">9</button>
+        </div>
+        <div id="commands">
+            <button type="button">+</button>
+            <button type="button">-</button>
+            <button type="button">*</button>
+            <button type="button">/</button>
+        </div>
+        <div id="end-commands">            
+            <button type="button">C</button>
+            <button type="button">=</button>
+        </div>
+    </form>
+
+    <script src="js/index.js"></script>
 </body>
+
 </html>
