@@ -21,41 +21,43 @@ Enter =
 - #input is cleared
 */
 (function init() {
-    let result = document.getElementById("result");
-    let input = document.getElementById("input");
-    let digits = document.getElementById("digits");
-    let commands = document.getElementById("commands");
-    let endCommands = document.getElementById("end-commands");
+    let result = document.getElementById('result');
+    let input = document.getElementById('input');
+    let digits = document.getElementById('digits');
+    let commands = document.getElementById('commands');
+    let endCommands = document.getElementById('end-commands');
   
-    digits.addEventListener("click", function(e) {
+    digits.addEventListener('click', function(e) {
       input.value += parseInt(e.target.innerText);
     });
   
-    commands.addEventListener("click", function(e) {
-      result.value = input.value += e.target.innerText;
-      input.value = "";
+    commands.addEventListener('click', function(e) {
+      if (!input.value) return;
+      if (e.target.innerText !== '.') {
+        result.value = input.value += e.target.innerText;
+        input.value = '';
+      } else {
+        if (input.value.includes('.')) return;
+        input.value += e.target.innerText
+      }
     });
   
-    endCommands.addEventListener("click", function(e) {
-      if (e.target.innerText === "=" && input.value === "0") {
-        result.value = "";
-        input.value = "";
+    endCommands.addEventListener('click', function(e) {
+      if (e.target.innerText === '=' && input.value === '0') {
+        result.value = '';
+        input.value = '';
         return;
       }
   
-      if (e.target.innerText === "=") {
-        result.value =
-          result.value +
-          input.value +
-          " = " +
-          eval(result.value + input.value).toFixed(3);
-        input.value = "";
+      if (e.target.innerText === '=') {
+        result.value = result.value + input.value + ' = ' + eval(result.value + input.value).toFixed(3);
+        input.value = '';
         return;
       }
   
-      if (e.target.innerText === "C") {
-        result.value = "";
-        input.value = "";
+      if (e.target.innerText === 'C') {
+        result.value = '';
+        input.value = '';
       }
     });
   })();
